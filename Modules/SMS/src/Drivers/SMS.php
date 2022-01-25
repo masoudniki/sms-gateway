@@ -2,7 +2,12 @@
 
 namespace MODULES\SMS\Drivers;
 
-class SMS
-{
+use Illuminate\Support\Facades\Facade;
 
+class SMS extends Facade
+{
+    public static function getFacadeAccessor()
+    {
+        return config("sms.driver");
+    }
 }
