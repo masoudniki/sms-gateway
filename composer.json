@@ -25,12 +25,14 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "MODULES\\SMS": "Modules/SMS/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "MODULES\\SMS\\Tests": "Modules/SMS/tests"
         }
     },
     "scripts": {
