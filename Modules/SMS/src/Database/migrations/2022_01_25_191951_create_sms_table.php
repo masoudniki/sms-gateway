@@ -15,6 +15,13 @@ class CreateSmsTable extends Migration
     {
         Schema::create('sms', function (Blueprint $table) {
             $table->id();
+            $table->string("number");
+            $table->text("body");
+            $table->string("provider");
+            $table->enum("status",["failed","sent","sending"])
+                ->default("sending");
+            $table->string("error_message")
+                ->nullable();
             $table->timestamps();
         });
     }
