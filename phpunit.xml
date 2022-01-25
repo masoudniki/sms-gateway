@@ -11,6 +11,12 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
+        <testsuite name="SMSUnit">
+            <directory suffix="Test.php">./Modules/SMS/tests/Unit</directory>
+        </testsuite>
+        <testsuite name="SMSFeature">
+            <directory suffix="Test.php">./Modules/SMS/tests/Feature</directory>
+        </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
