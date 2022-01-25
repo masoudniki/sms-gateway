@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace MODULES\SMS\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -25,7 +25,7 @@ class SMSServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(dirname(__DIR__) . DIRECTORY_SEPARATOR."resources/lang","sms");
     }
     private function loadRoutes(){
-        Route::middleware('api')->namespace('SMS\Http\Controllers')
+        Route::middleware('api')->namespace('MODULES\SMS\Http\Controllers')
             ->group(__DIR__.'/../routes/api.php');
     }
 
