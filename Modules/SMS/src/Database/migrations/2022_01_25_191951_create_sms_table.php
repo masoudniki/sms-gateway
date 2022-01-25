@@ -17,7 +17,7 @@ class CreateSmsTable extends Migration
             $table->id();
             $table->string("number");
             $table->text("body");
-            $table->string("provider");
+            $table->string("provider")->nullable();
             $table->enum("status",["failed","sent","sending"])
                 ->default("sending");
             $table->string("error_message")
