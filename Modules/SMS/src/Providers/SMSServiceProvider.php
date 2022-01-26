@@ -60,7 +60,8 @@ class SMSServiceProvider extends ServiceProvider
             return new Ghasedak(
                 config("sms.providers.ghasedak.api_token"),
                 config("sms.providers.ghasedak.base_uri"),
-                config("sms.providers.ghasedak.verify_ssl")
+                config("sms.providers.ghasedak.verify_ssl"),
+                config("sms.providers.ghasedak.line_number"),
             );
         });
     }

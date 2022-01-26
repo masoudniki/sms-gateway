@@ -24,7 +24,8 @@
             "ghasedak"=>[
                 "api_token"=>env("SMS_API_TOKEN"),
                 "base_uri"=>env("SMS_BASE_URI","http://api.ghasedak.me/v2/"),
-                "verify_ssl"=>env("SMS_VERIFY_SSL",false)
+                "verify_ssl"=>env("SMS_VERIFY_SSL",false),
+                "line_number"=>env("SMS_LINE_NUMBER","10008566")
             ],
             "kavenegar"=>[
                 "api_token"=>env("SMS_API_TOKEN"),
