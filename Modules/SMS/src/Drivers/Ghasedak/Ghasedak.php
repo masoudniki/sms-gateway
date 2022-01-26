@@ -7,7 +7,7 @@ use MODULES\SMS\Drivers\SMSInterface;
 
 class Ghasedak implements SMSInterface
 {
-    public Client $httpClient;
+    public $httpClient;
     public function __construct(public string $api_token,public string $base_uri,public bool $verify_ssl){
         $this->httpClient=new Client([
             "base_uri"=>rtrim($this->base_uri,"/")."/",
@@ -20,7 +20,7 @@ class Ghasedak implements SMSInterface
             ]
         ]);
     }
-    public function setHttpClient(Client $client){
+    public function setHttpClient($client){
         $this->httpClient=$client;
     }
     public function getHttpClient(){
