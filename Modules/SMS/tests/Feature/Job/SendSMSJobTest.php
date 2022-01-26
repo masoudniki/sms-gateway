@@ -12,7 +12,7 @@ use Tests\TestCase;
 
 class SendSMSJobTest extends TestCase
 {
-
+    use RefreshDatabase;
     public function test_sms_sent_successfully()
     {
         Event::fake();

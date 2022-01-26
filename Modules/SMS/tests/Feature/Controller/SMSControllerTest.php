@@ -2,6 +2,7 @@
 
 namespace MODULES\SMS\Tests\Feature\Controller;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Testing\Fluent\AssertableJson;
@@ -11,6 +12,7 @@ use Tests\TestCase;
 
 class SMSControllerTest extends TestCase
 {
+    use RefreshDatabase;
     public function test_get_list_of_all_sms_()
     {
         Event::fake();
