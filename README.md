@@ -10,7 +10,8 @@ simple sms gateway with supporting multiple driver
 first fill .env file with correct values and set your **SMS_DRIVER** and **SMS_TOKEN_API**
 then for  running project you have two options:
 1. running with docker
-run command blew in terminal:
+
+run commands blew in terminal:
 > docker-compose build
 
 > docker-compose up
