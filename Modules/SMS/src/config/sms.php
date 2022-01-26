@@ -1,19 +1,34 @@
 <?php
     return [
+        /*
+        |--------------------------------------------------------------------------
+        | Default sms service provider
+        |--------------------------------------------------------------------------
+        |
+        | Here you may specify which of the sms provider below you wish
+        | to use as your default provider for all sms
+        |
+        */
+        "driver"=>env("SMS_DRIVER","ghasedak"),
 
-        "driver"=>env("SMS_DRIVER","kavenegar"),
-
-
-
-        "drivers"=>[
-            "kavenegar"=>[
-                "url"=>"",
-                "token"=>"",
-            ],
+        /*
+        |--------------------------------------------------------------------------
+        | sms service providers
+        |--------------------------------------------------------------------------
+        |
+        | here there are a list of supported drivers.you can easily add your driver
+        | by implementing SMSInterface and register it in SMSServiceProvider then
+        | define your driver at the end of this list
+        */
+        "providers"=>[
             "ghasedak"=>[
-                "url"=>"",
-                "username"=>"",
-                "password"=>""
+                "api_token"=>env("SMS_API_TOKEN"),
+                "base_uri"=>env("SMS_BASE_URI","http://api.ghasedak.me/v2/"),
+                "verify"
+            ],
+            "kavenegar"=>[
+                "api_token"=>env("SMS_API_TOKEN","https://api.ghasedak.io/kavenegar/v1/"),
+                "base_uri"=>env("SMS_BASE_URI"),
             ]
         ]
 

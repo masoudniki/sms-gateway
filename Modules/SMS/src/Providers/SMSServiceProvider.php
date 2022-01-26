@@ -5,6 +5,8 @@ namespace MODULES\SMS\Providers;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use MODULES\SMS\Drivers\Ghasedak\Ghasedak;
+use MODULES\SMS\Drivers\Kavenegar\Kavenegar;
 use MODULES\SMS\Events\SMSCreated;
 use MODULES\SMS\Listeners\SMSCreatedListener;
 
@@ -16,6 +18,7 @@ class SMSServiceProvider extends ServiceProvider
         $this->loadMigrations();
         $this->loadRoutes();
         $this->loadTranslations();
+        $this->registerEvents();
 
     }
     private function loadConfig(){
@@ -44,6 +47,21 @@ class SMSServiceProvider extends ServiceProvider
                 Event::listen($event,$listener);
             }
         }
+    }
+    private function registerDrivers(){
+        $this->app->bind("kavenegar",function (){
+            return new Kavenegar(
+                config("sms.providers.kavenegar.api_token"),
+                config("sms.providers.kavenegar.base_uri")
+            );
+        });
+        $this->app->bind("ghasedak",function (){
+            return new Ghasedak(
+                config("sms.providers.kavenegar.api_token"),
+                config("sms.providers.kavenegar.base_uri"),
+                config("sms.providers.kavenegar.verify_ssl")
+            );
+        });
     }
 
 }
