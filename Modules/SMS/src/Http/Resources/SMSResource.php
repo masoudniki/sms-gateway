@@ -6,8 +6,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class SMSResource extends JsonResource
 {
-    public $with="data";
-
     public function toArray($request)
     {
         return [

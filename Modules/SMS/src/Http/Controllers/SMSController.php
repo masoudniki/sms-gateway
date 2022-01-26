@@ -12,14 +12,12 @@ use MODULES\SMS\Models\SMS;
 class SMSController extends Controller
 {
     public function index(){
-        return response()->json(
-            SMSCollection::make(SMS::query()
-                ->paginate(15)
-            )
+        return new SMSCollection(SMS::query()
+            ->paginate(15)
         );
     }
-    public function show(SMS $SMS){
-        return response()->json(new SMSResource($SMS));
+    public function show(SMS $sms){
+        return new SMSResource($sms);
     }
     public function submit(ValidateSubmitSMSRequest $request){
         SMS::query()->create($request->validated());

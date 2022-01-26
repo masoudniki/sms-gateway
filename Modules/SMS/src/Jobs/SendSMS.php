@@ -15,8 +15,9 @@ class SendSMS implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public function __construct(
         public SMS $SMS
-    ){}
-    public $queue="sms";
+    ){
+        $this->queue="sms";
+    }
     public function handle()
     {
         try {

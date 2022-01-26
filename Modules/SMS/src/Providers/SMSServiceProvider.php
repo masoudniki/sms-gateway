@@ -43,8 +43,8 @@ class SMSServiceProvider extends ServiceProvider
                 SMSCreatedListener::class
             ]
         ];
-        foreach ($events as $event){
-            foreach ($event as $listener){
+        foreach ($events as $event=>$listeners){
+            foreach ($listeners as $listener){
                 Event::listen($event,$listener);
             }
         }

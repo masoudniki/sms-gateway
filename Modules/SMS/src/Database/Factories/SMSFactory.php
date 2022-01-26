@@ -19,7 +19,7 @@ class SMSFactory extends Factory
             "number"=>$this->faker->phoneNumber(),
             "body"=>$this->faker->realText(500),
             "status"=>$this->faker->shuffleArray(["failed","sent","sending"])[0],
-            "provider"=>$this->faker->shuffleArray(["kavenegar","ghasedak"])
+            "provider"=>$this->faker->shuffleArray(["kavenegar","ghasedak"])[0]
         ];
     }
 }

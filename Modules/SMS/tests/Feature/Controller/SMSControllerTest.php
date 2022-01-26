@@ -21,7 +21,7 @@ class SMSControllerTest extends TestCase
             ->assertStatus(200)
             ->assertJson(function (AssertableJson $json){
                 $json
-                    ->has("data",10)
+                    ->has("data",12)
                     ->has("data.0",function (AssertableJson $json){
                         $json
                             ->has("id")
@@ -56,7 +56,7 @@ class SMSControllerTest extends TestCase
     }
     public function test_submit_a_sms(){
         Bus::fake();
-        $this->post(route("sms.submit"),[
+        $this->postJson(route("sms.submit"),[
             "number"=>"09121230123",
             "body"=>"this is a test message"
         ])
@@ -70,16 +70,11 @@ class SMSControllerTest extends TestCase
     }
     public function test_get_422_error_code_when_parameters_are_not_valid(){
         Bus::fake();
-        $this->post(route("sms.submit"),[
+        $this->postJson(route("sms.submit"),[
             "number"=>"000",
             "body"=>""
         ])
-            ->assertStatus(422)
-            ->assertJson(function (AssertableJson $json){
-                $json->has("data")
-                    ->has("data.message")
-                    ->where("data.message",__("sms::sms.your_request_submitted"));
-            });
+            ->assertStatus(422);
         Bus::assertNotDispatched(SendSMS::class);
     }
 }

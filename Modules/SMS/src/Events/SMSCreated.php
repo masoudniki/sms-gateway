@@ -14,5 +14,6 @@ use MODULES\SMS\Models\SMS;
 class SMSCreated
 {
     use Dispatchable, SerializesModels;
-    public function __construct(public SMS $SMS){}
+    public function __construct(public SMS $SMS){
+    }
 }
