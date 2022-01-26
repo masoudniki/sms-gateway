@@ -19,6 +19,7 @@ class SMSServiceProvider extends ServiceProvider
         $this->loadRoutes();
         $this->loadTranslations();
         $this->registerEvents();
+        $this->registerDrivers();
 
     }
     private function loadConfig(){
@@ -57,9 +58,9 @@ class SMSServiceProvider extends ServiceProvider
         });
         $this->app->bind("ghasedak",function (){
             return new Ghasedak(
-                config("sms.providers.kavenegar.api_token"),
-                config("sms.providers.kavenegar.base_uri"),
-                config("sms.providers.kavenegar.verify_ssl")
+                config("sms.providers.ghasedak.api_token"),
+                config("sms.providers.ghasedak.base_uri"),
+                config("sms.providers.ghasedak.verify_ssl")
             );
         });
     }
