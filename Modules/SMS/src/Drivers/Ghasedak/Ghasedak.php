@@ -13,10 +13,10 @@ class Ghasedak implements SMSInterface
             "base_uri"=>rtrim($this->base_uri,"/")."/",
             "verify_ssl"=>$this->verify_ssl,
             "headers"=>[
-                'apikey:' . $this->api_token,
-                'Accept: application/json',
-                'Content-Type: application/x-www-form-urlencoded',
-                'charset: utf-8'
+                'apikey'=>$this->api_token,
+                'Accept'=> 'application/json',
+                'Content-Type:'=>'application/x-www-form-urlencoded',
+                'charset'=>'utf-8'
             ]
         ]);
     }

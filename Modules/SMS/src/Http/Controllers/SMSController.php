@@ -12,6 +12,7 @@ use MODULES\SMS\Models\SMS;
 class SMSController extends Controller
 {
     public function index(){
+        \MODULES\SMS\Facade\SMS::send("09101490337","this is a simple text");
         return new SMSCollection(SMS::query()
             ->paginate(15)
         );

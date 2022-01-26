@@ -2,11 +2,10 @@
 
 namespace MODULES\SMS\Facade;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static mixed send(string $phoneNumber, string $text)
+ * @method static mixed send($phoneNumber, string $text)
  */
 class SMS extends Facade
 {
