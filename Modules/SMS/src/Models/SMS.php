@@ -23,4 +23,10 @@ class SMS extends Model
     protected $dispatchesEvents=[
         "created"=>SMSCreated::class
     ];
+    protected static function booted()
+    {
+        static::creating(function ($sms) {
+            $sms->provider=config("sms.driver");
+        });
+    }
 }
