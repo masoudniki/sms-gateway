@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace MODULES\SMS\Tests\Feature\Job;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
