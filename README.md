@@ -11,7 +11,7 @@ first fill .env file with correct values and set your **SMS_DRIVER** and **SMS_T
 then for  running project you have two options:
 1. running with docker
 
-run commands blew in terminal:
+run commands below in terminal:
 > docker-compose build
 
 > docker-compose up
