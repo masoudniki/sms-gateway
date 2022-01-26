@@ -17,7 +17,7 @@ class GhasedakDriverTest extends TestCase
     public function setUp(): void
     {
         $this->mock=new MockHandler();
-        $this->ghasedak=new Ghasedak("test","http://localhost/v1/",false);
+        $this->ghasedak=new Ghasedak("test","http://localhost/v1/",false,"1008586");
         $this->ghasedak->setHttpClient(new Client(['handler'=>$this->mock]));
         parent::setUp();
     }
