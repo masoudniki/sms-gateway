@@ -26,6 +26,8 @@ class SendSMS implements ShouldQueue
         }catch (\Exception $exception){
             $this->SMS->status=SMS::FAILED;
             $this->SMS->error_message=$exception->getMessage();
+        }finally{
+            $this->SMS->save();
         }
     }
 }
