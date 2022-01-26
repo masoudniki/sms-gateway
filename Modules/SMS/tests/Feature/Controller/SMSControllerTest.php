@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Testing\Fluent\AssertableJson;
 use MODULES\SMS\Database\Factories\SMSFactory;
 use MODULES\SMS\Jobs\SendSMS;
+use MODULES\SMS\Models\SMS;
 use Tests\TestCase;
 
 class SMSControllerTest extends TestCase
@@ -66,6 +67,12 @@ class SMSControllerTest extends TestCase
                     ->has("data.message")
                     ->where("data.message",__("sms::sms.your_request_submitted"));
             });
+        $sms=SMS::query()->first();
+        $this->assertEquals("09121230123",$sms->number);
+        $this->assertEquals("this is a test message",$sms->body);
+        $this->assertEquals(config("sms.driver"),$sms->provider);
+
+
         Bus::assertDispatched(SendSMS::class);
     }
     public function test_get_422_error_code_when_parameters_are_not_valid(){
