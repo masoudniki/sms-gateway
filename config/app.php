@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \MODULES\SMS\Providers\SMSServiceProvider::class,
 
         /*
          * Application Service Providers...
