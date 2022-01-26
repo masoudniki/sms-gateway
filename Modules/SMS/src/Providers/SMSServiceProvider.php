@@ -2,6 +2,7 @@
 
 namespace MODULES\SMS\Providers;
 
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,6 +30,16 @@ class SMSServiceProvider extends ServiceProvider
             ->namespace('MODULES\SMS\Http\Controllers')
             ->prefix("api")
             ->group(__DIR__.'/../routes/api.php');
+    }
+    private function registerEvents(){
+        $events=[
+
+        ];
+        foreach ($events as $event){
+            foreach ($event as $listener){
+                Event::listen($event,$listener);
+            }
+        }
     }
 
 }
