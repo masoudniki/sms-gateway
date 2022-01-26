@@ -5,6 +5,8 @@ namespace MODULES\SMS\Providers;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use MODULES\SMS\Events\SMSCreated;
+use MODULES\SMS\Listeners\SMSCreatedListener;
 
 class SMSServiceProvider extends ServiceProvider
 {
@@ -33,7 +35,9 @@ class SMSServiceProvider extends ServiceProvider
     }
     private function registerEvents(){
         $events=[
-
+            SMSCreated::class=>[
+                SMSCreatedListener::class
+            ]
         ];
         foreach ($events as $event){
             foreach ($event as $listener){

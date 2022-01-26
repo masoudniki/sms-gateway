@@ -4,27 +4,13 @@ namespace MODULES\SMS\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use MODULES\SMS\Events\SMSCreated;
+use MODULES\SMS\Jobs\SendSMS;
 
 class SMSCreatedListener
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function handle(SMSCreated $event)
     {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
-     * @param  object  $event
-     * @return void
-     */
-    public function handle($event)
-    {
-        //
+        SendSMS::dispatch($event->SMS);
     }
 }
