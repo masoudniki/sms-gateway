@@ -32,3 +32,9 @@ RUN mkdir -p /home/$user/.composer && \
 WORKDIR /var/www
 
 USER $user
+copy composer.* ./
+RUN composer install
+copy . ./
+cmd php artisan queue:work --queue="sms"
+
+
